@@ -20,3 +20,15 @@
   display :inline-block;
   color: red;
 }
+
+.bigbox {
+  @include outer-container;
+}
+
+.box {
+  background-color: silver;
+  height: 300px;
+  @include span-columns(6);
+}
+
+

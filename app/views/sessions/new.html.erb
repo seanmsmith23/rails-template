@@ -4,7 +4,7 @@
     <%= f.text_field :first_name %>
     <% if @user.errors.include?(:first_name) %>
     <p class="error-explanation"><%= @user.errors[:first_name].first %></p>
-    <% end %>
+  <% end %>
   </p>
 
   <p>
@@ -12,7 +12,7 @@
     <%= f.text_field :last_name %>
     <% if @user.errors.include?(:last_name) %>
     <p class="error-explanation"><%= @user.errors[:last_name].first %></p>
-    <% end %>
+  <% end %>
   </p>
 
   <p>
@@ -20,9 +20,9 @@
     <%= f.email_field :email %>
     <% if @user.errors.include?(:email) %>
       <% @user.errors[:email].each do |msg| %>
-        <p class="error-explanation"><%= msg %></p>
-      <% end %>
+      <p class="error-explanation"><%= msg %></p>
     <% end %>
+  <% end %>
   </p>
 
   <p>
@@ -30,7 +30,12 @@
     <%= f.password_field :password %>
     <% if @user.errors.include?(:password) %>
     <p class="error-explanation"><%= @user.errors[:password].first %></p>
-    <% end %>
+  <% end %>
   </p>
   <%= f.submit :Register %>
 <% end %>
+
+<div class="bigbox">
+  <div class="box"></div>
+  <div class="box"></div>
+</div>
