@@ -1,0 +1,36 @@
+<%= form_for @user, url: sessions_path do |f| %>
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+    <% if @user.errors.include?(:first_name) %>
+    <p class="error-explanation"><%= @user.errors[:first_name].first %></p>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+    <% if @user.errors.include?(:last_name) %>
+    <p class="error-explanation"><%= @user.errors[:last_name].first %></p>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+    <% if @user.errors.include?(:email) %>
+      <% @user.errors[:email].each do |msg| %>
+        <p class="error-explanation"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+    <% if @user.errors.include?(:password) %>
+    <p class="error-explanation"><%= @user.errors[:password].first %></p>
+    <% end %>
+  </p>
+  <%= f.submit :Register %>
+<% end %>

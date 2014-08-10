@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: sonder_development
+
+test:
+  <<: *default
+  database: sonder_test
+
+production:
+  <<: *default
+  database: sonder_production
+  username: sonder
+  password: <%= ENV['SONDER_DATABASE_PASSWORD'] %>
