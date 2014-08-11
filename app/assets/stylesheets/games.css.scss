@@ -52,6 +52,10 @@
   @include flash($success-color);
 }
 
+.flash-error {
+  @include flash($error-color);
+}
+
 .table-borders {
   $table-border-color: $base-border-color;
   $table-border: 1px solid $table-border-color;

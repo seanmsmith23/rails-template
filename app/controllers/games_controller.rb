@@ -49,6 +49,9 @@ class GamesController < ApplicationController
   end
 
   def index
+    if User.all.count < 3
+      redirect_to root_path, notice: "Must have at least three players to start"
+    end
     @latecomer = User.new
     @players = User.order(:position)
   end

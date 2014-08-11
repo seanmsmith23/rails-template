@@ -1,4 +1,10 @@
 <div class="full-width">
+  <%if flash[:notice] %>
+    <div class="flash-error">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
   <%= form_for @player, url: games_path do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>

@@ -5,11 +5,11 @@ default: &default
 
 development:
   <<: *default
-  database: sonder_development
+  database: speed_pong_development
 
 test:
   <<: *default
-  database: sonder_test
+  database: speed_pong_test
 
 production:
   <<: *default
