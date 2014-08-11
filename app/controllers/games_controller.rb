@@ -10,7 +10,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @player = User.create(name: params[:user][:name], score: 0 )
+    @player = User.create(name: params[:user][:name].capitalize, score: 0 )
 
     if @player.valid?
     @player.save
