@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   post "/settings" => "games#settings", as: :settings
   get "/game_over/:id" => "games#game_over", as: :game_over
   post "/latecomer" => "games#latecomer", as: :latecomer
+  post "/clear" => "games#clear", as: :clear
 
 end

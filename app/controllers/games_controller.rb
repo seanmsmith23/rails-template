@@ -32,6 +32,12 @@ class GamesController < ApplicationController
     end
   end
 
+  def clear
+    @players = User.all
+    @players.destroy_all
+    redirect_to root_path
+  end
+
   def start_game
     User.shuffle
     User.zero_scores
