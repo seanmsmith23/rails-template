@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
- resources :sessions, only: [:new, :create]
+  resources :games, :only => [:new, :create, :index]
+  root "games#new"
 
- root "sessions#new"
+  get "/winner/:winner/:loser" => "games#winner", as: :winner
+  get "/start_game" => "games#start_game"
+  post "/settings" => "games#settings", as: :settings
+  get "/game_over/:id" => "games#game_over", as: :game_over
+  post "/latecomer" => "games#latecomer", as: :latecomer
+
 end

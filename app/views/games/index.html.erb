@@ -1,0 +1,51 @@
+<div class="full-width">
+    <%if flash[:notice] %>
+      <div class="flash-message">
+        <%= flash[:notice] %>
+       </div>
+    <% end %>
+
+    <h1 style="text-align: center">
+      <%= @players[0].name %> vs. <%= @players[1].name %>
+    </h1>
+
+  <div class="full-width">
+    <div class="center-buttons">
+      <%= link_to "#{ @players[0].name} won!", winner_path(winner: @players[0].id, loser: @players[1].id), class: "link-button" %>
+      <%= link_to "#{ @players[1].name} won!", winner_path(winner: @players[1].id, loser: @players[0].id), class: "link-button" %>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3 style="text-align: center" class="full-width"><%= @players[2].name %> is next.</h3>
+  </div>
+
+  <h5 style="text-align: center">Scoreboard</h5>
+  <table class="table-borders">
+    <thead>
+    <tr>
+      <th>Player</th>
+      <th>Score</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @players.order(:score).each do |player| %>
+      <tr>
+        <td>
+          <%= player.name %>
+        </td>
+        <td>
+          <%= player.score %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= form_for @latecomer, url: latecomer_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Add Latecomer" %>
+<% end %>

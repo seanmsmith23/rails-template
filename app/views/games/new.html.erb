@@ -1,0 +1,58 @@
+<div class="full-width">
+  <%= form_for @player, url: games_path do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.submit %>
+  <% end %>
+
+  <% if @players %>
+    <div class="two-wide">
+      <table class="table-borders">
+        <thead>
+        <tr>
+          <th>Players</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @players.each do |player| %>
+          <tr>
+            <td>
+              <%= player.name %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+
+    <table class="table-borders">
+      <thead>
+      <tr>
+        <th>Max Streak</th>
+        <th>Playing To</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><%= @settings.streak %></td>
+        <td><%= @settings.end %></td>
+      </tr>
+      </tbody>
+    </table>
+
+
+  <%= form_for @settings, url: settings_path, method: :post do |f| %>
+    <%= f.label :max_streak %>
+    <%= f.text_field :streak %>
+
+    <%= f.label :playing_to %>
+    <%= f.text_field :end %>
+
+    <%= f.submit "Update Settings" %>
+  <% end %>
+  <br>
+  <a href="/start_game" class="link-button">Start Game</a>
+</div>

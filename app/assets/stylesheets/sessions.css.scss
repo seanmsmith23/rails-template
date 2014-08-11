@@ -9,19 +9,17 @@
 }
 .field_with_errors {
   display :inline-block;
+
+  input {
+    border: 2px solid red;
+  }
+
+  label {
+    color: red;
+  }
 }
 
-.field_with_errors input {
-  display :inline-block;
-  border: 2px solid red;
-}
-
-.field_with_errors label {
-  display :inline-block;
-  color: red;
-}
-
-.bigbox {
+.full-width {
   @include outer-container;
 }
 

@@ -12,8 +12,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'rspec-rails'
 gem 'capybara'
 gem 'pg'
+
 gem 'bourbon'
 gem 'neat'
+gem 'bitters'
 
 # gem 'spring',        group: :development
 
