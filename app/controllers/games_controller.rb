@@ -77,7 +77,7 @@ class GamesController < ApplicationController
       update = User.order(:position)
       winner.position = (update.last.position + 1)
       winner.save
-      redirect_to games_path, notice: "Three wins in a row!"
+      redirect_to games_path, notice: "#{@settings.streak} wins in a row!"
     else
       redirect_to games_path
     end
