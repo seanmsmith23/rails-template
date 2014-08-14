@@ -15,6 +15,26 @@
 
 .three-wide {
   @include span-columns(3);
+  position: relative;
+  left: 20px;
+}
+
+.new_game {
+  position: absolute;
+  font-size: 25px;
+  @include button;
+  top: 85%;
+  left: 45%;
+}
+
+.new_from_index {
+  @include button;
+  margin-top: 20px;
+}
+
+.four-wide {
+  @include span-columns(4);
+  @include shift(4);
 }
 
 .two-wide {

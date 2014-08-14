@@ -13,11 +13,12 @@
   <% end %>
 
   <% if @players %>
-    <div class="two-wide">
+    <div class="four-wide">
       <table class="table-borders">
         <thead>
         <tr>
           <th>Players</th>
+          <th>Options</th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +26,9 @@
           <tr>
             <td>
               <%= player.name %>
+            </td>
+            <td>
+              <%= button_to "Delete", {controller: :games, action: 'destroy', id: player.id }, method: :delete %>
             </td>
           </tr>
         <% end %>
@@ -49,17 +53,16 @@
       </tbody>
     </table>
 
+    <%= form_for @settings, url: settings_path, method: :post do |f| %>
+      <%= f.label :max_streak %>
+      <%= f.text_field :streak %>
 
-  <%= form_for @settings, url: settings_path, method: :post do |f| %>
-    <%= f.label :max_streak %>
-    <%= f.text_field :streak %>
+      <%= f.label :playing_to %>
+      <%= f.text_field :end %>
 
-    <%= f.label :playing_to %>
-    <%= f.text_field :end %>
-
-    <%= f.submit "Update Settings" %>
-  <% end %>
-  <br>
-  <a href="/start_game" class="link-button">Start Game</a>
-  <%= button_to "Clear Players", clear_path %>
+      <%= f.submit "Update Settings" %>
+    <% end %>
+    <br>
+    <a href="/start_game" class="link-button">Start Game</a>
+    <%= button_to "Clear Players", clear_path %>
 </div>

@@ -11,8 +11,8 @@
 
   <div class="full-width">
     <div class="center-buttons">
-      <%= link_to "#{ @players[0].name} won!", winner_path(winner: @players[0].id, loser: @players[1].id), class: "link-button" %>
-      <%= link_to "#{ @players[1].name} won!", winner_path(winner: @players[1].id, loser: @players[0].id), class: "link-button" %>
+      <%= link_to "#{ @players[0].name} won!", winner_path(winner: @players[0].id, loser: @players[1].id), class: "link-button", id: "winner-button" %>
+      <%= link_to "#{ @players[1].name} won!", winner_path(winner: @players[1].id, loser: @players[0].id), class: "link-button", id: "winner-button" %>
     </div>
   </div>
 
@@ -26,6 +26,7 @@
     <tr>
       <th>Player</th>
       <th>Score</th>
+      <th>Options</th>
     </tr>
     </thead>
     <tbody>
@@ -37,15 +38,21 @@
         <td>
           <%= player.score %>
         </td>
+        <td>
+          <%= button_to "Delete", {controller: :games, action: 'destroy', id: player.id }, method: :delete %>
+        </td>
       </tr>
     <% end %>
     </tbody>
   </table>
 </div>
 
-<%= form_for @latecomer, url: latecomer_path do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
 
-  <%= f.submit "Add Latecomer" %>
-<% end %>
+  <%= form_for @latecomer, url: latecomer_path do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.submit "Add Latecomer" %>
+  <% end %>
+
+  <%= link_to "New Game", root_path, class: "new_from_index" %>

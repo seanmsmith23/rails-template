@@ -22,7 +22,7 @@ class GamesController < ApplicationController
 
   def latecomer
     players = User.order(:position)
-    @player = User.create(name: params[:user][:name], score: 0, position: players.last.position + 1 )
+    @player = User.create(name: params[:user][:name].capitalize, score: 0, position: players.last.position + 1 )
 
     if @player.valid?
       @player.save
@@ -99,6 +99,12 @@ class GamesController < ApplicationController
 
   def game_over
     @winner = User.find(params[:id])
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to :back
   end
 
 end

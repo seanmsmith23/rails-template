@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get "/game_over/:id" => "games#game_over", as: :game_over
   post "/latecomer" => "games#latecomer", as: :latecomer
   post "/clear" => "games#clear", as: :clear
-
+  delete "/player/:id/delete" => "games#destroy", as: :delete
 end
