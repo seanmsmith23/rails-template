@@ -5,20 +5,25 @@
        </div>
     <% end %>
 
+  <section>
+
+
     <h1 style="text-align: center">
       <%= @players[0].name %> vs. <%= @players[1].name %>
     </h1>
 
-  <div class="full-width">
-    <div class="center-buttons">
-      <%= link_to "#{ @players[0].name} won!", winner_path(winner: @players[0].id, loser: @players[1].id), class: "link-button", id: "winner-button" %>
-      <%= link_to "#{ @players[1].name} won!", winner_path(winner: @players[1].id, loser: @players[0].id), class: "link-button", id: "winner-button" %>
+    <div class="full-width">
+      <div class="center-buttons">
+        <%= link_to "#{ @players[0].name} won!", winner_path(winner: @players[0].id, loser: @players[1].id), class: "link-button", id: "winner-button" %>
+        <%= link_to "#{ @players[1].name} won!", winner_path(winner: @players[1].id, loser: @players[0].id), class: "link-button", id: "winner-button" %>
+      </div>
     </div>
-  </div>
 
-  <div class="next">
-    <h3 style="text-align: center" class="full-width"><%= @players[2].name %> is next.</h3>
-  </div>
+    <div class="next">
+      <h3 style="text-align: center" class="full-width"><%= @players[2].name %> is next.</h3>
+    </div>
+
+  </section>
 
   <h5 style="text-align: center">Scoreboard</h5>
   <table class="table-borders">
@@ -45,6 +50,22 @@
     <% end %>
     </tbody>
   </table>
+  <div class="table-width">
+    <table class="table-borders">
+      <thead>
+      <tr>
+        <th>Max Streak</th>
+        <th>Playing To</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><%= @settings.streak %></td>
+        <td><%= @settings.end %></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 

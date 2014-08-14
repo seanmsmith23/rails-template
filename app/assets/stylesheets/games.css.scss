@@ -13,6 +13,11 @@
   left: 100px;
 }
 
+.table-width {
+  @include span-columns(4);
+  @include shift(4);
+}
+
 .three-wide {
   @include span-columns(3);
   position: relative;

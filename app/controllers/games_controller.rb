@@ -54,6 +54,7 @@ class GamesController < ApplicationController
     end
     @latecomer = User.new
     @players = User.order(:position)
+    @settings = Setting.first
   end
 
   def winner
